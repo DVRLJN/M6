@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/7323de94ee.js" crossorigin="anonymous"></script>
+</head>
+<body >
+    <script src="penjat.js"></script>
+    <div class="from-teal-100 via-teal-300 to-teal-500 bg-gradient-to-br flex flex-col items-center" id="contenedor">
+        <div id="titulos" class="flex flex-col items-center justify-center min-h-screen from-teal-100 via-teal-300 to-teal-500 bg-gradient-to-br">
+            <h1>Juego del Ahorcado</h1>
+            <div id="botones" class="flex content-center justify-center">
+                <button type="button" onclick="novaPartida()"  class="bg-red-600 font-semibold text-white p-2 w-32 rounded-full hover:bg-red-700 focus:outline-none focus:ring shadow-lg hover:shadow-none transition-all duration-300 m-2"
+                >Iniciar una partida</button>
+                
+                <button
+                type="button"
+                class="bg-green-600 font-semibold text-white p-2 w-32 rounded-full hover:bg-green-700 focus:outline-none focus:ring shadow-lg hover:shadow-none transition-all duration-300 m-2"
+                onclick="mostrarEstadisticas()"
+                >Estadísticas</button>
+            </div>
+            <content class="flex flex-row mt-4">
+                <img id="img" class="hidden w-3/6 pr-40" src="./img_penjat/penjat_0.png" alt="">
+                <div id="imgLetras" class="flex flex-col justify-around w-screen">
+                    <div class="border-blue-100 " id="letrasUsadas"></div>
+                    <div id="jocPenjat" class="flex justify-center max-w-max hidden items-start rounded-xl bg-white p-4 shadow-lg">
+                        <div class="ml-4">
+                            <div class="text-center w-1/5 " ></div>
+                          <p id="plays" class="mt-2 text-sm text-gray-500"></p>
+                        </div>
+                      </div>
+                </div> 
+            </content>  
+            <div class=" text-center" id="abecedario"></div>  
+            <footer class="">    
+                <p>Desarrollado por Darlyn Cuevas</p>            
+            </footer> 
+        </div>
+    </div>
+
+    <!-- MODAL   -->
+    <div id="modal" class=" flex h-screen justify-center hidden from-teal-100 via-teal-300 to-teal-500 bg-gradient-to-br flex-col items-center">
+        <div id="iconTitulo" class="flex w-screen justify-center gap-8 content-center">
+            <i onclick="comeBack()" class="fa-solid fa-left-long mt-2  "></i>
+            <h2 class="mb-4 text-2xl font-bold">ESTADÍSTICAS</h2>
+        </div>
+        <div class="mt-4 flex  justify-around w-screen">
+          <div class="flex items-start rounded-xl bg-white p-4 shadow-lg">
+            <div class="flex h-12 w-12 items-center justify-center rounded-full border border-blue-100 bg-blue-50">
+                <i class="fa-solid fa-gamepad"></i>
+            </div>
+      
+            <div class="ml-4">
+              <h2 class="font-semibold">Partidas Jugadas</h2>
+              <p id="plays" class="mt-2 text-sm text-gray-500"></p>
+            </div>
+            
+          </div>
+      
+          <div class="flex items-start rounded-xl bg-white p-4 shadow-lg">
+            <div class="flex h-12 w-12 items-center justify-center rounded-full border border-orange-100 bg-orange-50">
+                <i class="fa-solid fa-face-smile"></i>
+            </div>
+      
+            <div class="ml-4">
+              <h2 class="font-semibold">Partidas Ganadas</h2>
+              <p id="smile" class="mt-2 text-sm text-gray-500"></p>
+            </div>
+          </div>
+          <div class="flex items-start rounded-xl bg-white p-4 shadow-lg">
+            <div class="flex h-12 w-12 items-center justify-center rounded-full border border-red-100 bg-red-50">
+                <i class="fa-solid fa-face-sad-cry"></i>
+            </div>
+      
+            <div class="ml-4">
+              <h2 class="font-semibold">Partidas perdidas</h2>
+              <p id="sad" class="mt-2 text-sm text-gray-500"></p>
+            </div>
+          </div>
+    
+        </div>
+      </div>
+    
+</body>
+</html>
+
