@@ -3,7 +3,7 @@ function get_head(){
      include "./plantillas/head.php"; 
 }
 
- function get_header(){
+function get_header(){
     include "./plantillas/header.php";
 }
 

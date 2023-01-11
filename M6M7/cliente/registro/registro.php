@@ -5,24 +5,16 @@ if ($_SERVER["REQUEST_METHOD"]!="POST"){
 }
 $userNombre = $_POST['nombre'];
 $userEmail = $_POST['email'];
+
 $userPass = password_hash($_POST['password'],PASSWORD_DEFAULT);
-
-//HAY QUE CREAR UNA SESION AL LOGEARSE Y AL REGISTRARSE TAMBIEN?? ME HE QUEDADO AQUI
-crearSesion($userEmail);
-
 
 //Conectamos con base de datos
 $db = conectar();
-$idUser = insertarUsuario($db,$userNombre,$userEmail,$userPass);
 
-if($idUser == 0){
+if(insertarUsuario($db,$userNombre,$userEmail,$userPass) == 0){
     include_once "fail.php";
 }else{
-    header("Location: ../index.php?idUsuario=$idUser");
-}
-
-function crearSesion($userEmail){
-    $_SESSION['userSession'] = $userEmail;
+    header("Location: ../index.php");
 }
 
 function conectar(){
@@ -48,10 +40,14 @@ function insertarUsuario($db,$userNombre,$userEmail,$userPass){
             $insert = $db->prepare('INSERT INTO users(nombre,email,pass) VALUES(?, ?, ?)');
             $insert->execute(array($userNombre,$userEmail,$userPass));
 
-            $select = $db->prepare("SELECT IdUser FROM users where email = '$userEmail'");
+            $select = $db->prepare("SELECT IdUser,nombre,email FROM users where email = '$userEmail'");
             $select->execute();
-            $selectId = $select ->fetchAll(PDO::FETCH_COLUMN);
-            return $selectId[0];
+            $select -> bindColumn('email',$email);
+            $select -> bindColumn('IdUser',$idUser);
+            $select -> bindColumn('nombre',$nombre);
+            $select ->fetchAll(PDO::FETCH_COLUMN);
+            $_SESSION['UserDatos'] = ['email' => $email,'id' => $idUser,'name' => $nombre];
+            return $idUser;
         }else{
             return 0;
         }

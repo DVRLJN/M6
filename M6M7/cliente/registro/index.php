@@ -4,23 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
     <script src="https://cdn.tailwindcss.com"></script>
+   
     <title>Registro</title>
 </head>
 <body>
     <div class="w-full min-h-screen bg-gray-50 flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
     <div class="w-full sm:max-w-md p-5 mx-auto">
         <h2 class="mb-12 text-center text-5xl font-extrabold">Regístrate</h2>
-        <form action="index.php" method="post">
-        <div class="mb-4">
-            <label class="block mb-1" for="email">Nombre</label>
-            <input id="email" type="text" name="nombre" required class="py-2 px-3 border border-gray-300 focus:border-red-300 focus:outline-none focus:ring focus:ring-red-200 focus:ring-opacity-50 rounded-md shadow-sm disabled:bg-gray-100 mt-1 block w-full" />
+        <form id="form" action="index.php" method="post" onsubmit="return validateForm()">
+        <div id="divNombre" class="mb-4">
+            <label class="block mb-1"  for="name">Nombre</label>
+            <input id="name" type="text" name="nombre" required  class="py-2 px-3 border border-gray-300 focus:border-red-300 focus:outline-none focus:ring focus:ring-red-200 focus:ring-opacity-50 rounded-md shadow-sm disabled:bg-gray-100 mt-1 block w-full" />
         </div>
-        <div class="mb-4">
-            <label class="block mb-1" for="password">Email</label>
-            <input id="password" type="email" name="email" required class="py-2 px-3 border border-gray-300 focus:border-red-300 focus:outline-none focus:ring focus:ring-red-200 focus:ring-opacity-50 rounded-md shadow-sm disabled:bg-gray-100 mt-1 block w-full" />
+        <div id="divEmail" class="mb-4">
+            <label class="block mb-1" for="email">Email</label>
+            <input id="email" type="email" name="email" required class="py-2 px-3 border border-gray-300 focus:border-red-300 focus:outline-none focus:ring focus:ring-red-200 focus:ring-opacity-50 rounded-md shadow-sm disabled:bg-gray-100 mt-1 block w-full"/>
         </div>
-        <div class="mb-4">
+        <div id="divPass" class="mb-4">
             <label class="block mb-1" for="password">Contraseña</label>
             <input id="password" type="password" name="password" required class="py-2 px-3 border border-gray-300 focus:border-red-300 focus:outline-none focus:ring focus:ring-red-200 focus:ring-opacity-50 rounded-md shadow-sm disabled:bg-gray-100 mt-1 block w-full" />
         </div>
@@ -36,5 +38,6 @@
         </form>
     </div>
     </div>
+    <script src="./script.js"></script>
 </body>
 </html>
