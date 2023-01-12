@@ -34,23 +34,7 @@ CREATE TABLE "images" (
 -- Volcado de datos para la tabla "images"
 --
 
-INSERT INTO "images" ("idImage", "imagen", "idProduct") VALUES
-(33, 'uploads/timberland_226547_A27QD_20200730T160459_01.jpg', 10),
-(34, 'uploads/timberland_226547_A27QD_20200730T160501_02.jpg', 10),
-(35, 'uploads/timberland_226547_A27QD_20200730T160504_03.jpg', 10),
-(36, 'uploads/timberland_226547_A27QD_20200730T160506_04.jpg', 10),
-(53, 'uploads/adidas_geezy.jpg', 15),
-(54, 'uploads/adidas_geezy1.jpg', 15),
-(55, 'uploads/adidas_geezy2.jpg', 15),
-(56, 'uploads/adidas_geezy3.jpg', 15),
-(57, 'uploads/air-jordan-1-university-blue-release-info-01.jpg', 16),
-(58, 'uploads/air-jordan-1-university-blue-release-info-02.jpg', 16),
-(59, 'uploads/air-jordan-1-university-blue-release-info-03.jpg', 16),
-(60, 'uploads/air-jordan-1-university-blue-release-info-01.jpg', 16),
-(61, 'uploads/realflexgreyorange.jpg', 17),
-(62, 'uploads/realflexgreyorange4.jpg', 17),
-(63, 'uploads/realflexgreyorange6.jpg', 17),
-(64, 'uploads/realflexgreyorange7.jpg', 17);
+
 
 -- --------------------------------------------------------
 
@@ -73,11 +57,6 @@ CREATE TABLE "localizacion" (
 -- Volcado de datos para la tabla "localizacion"
 --
 
-INSERT INTO "localizacion" ("id", "idProduct", "latitude", "longitude", "calle", "numCalle", "cp", "ciudad") VALUES
-(10, 10, 41.3753, 2.16438, 'Av. del Paral·lel', 106, 8015, 'Barcelona'),
-(13, 15, 41.4162, 2.2121, 'C/ de Cristóbal de Moura', 217, 8019, 'Barcelona'),
-(14, 16, 41.405, 2.19246, 'Avinguda Diagonal', 200, 8018, 'Barcelona'),
-(15, 17, 41.4162, 2.2121, 'C/ de Cristóbal de Moura', 217, 8019, 'Barcelona');
 
 -- --------------------------------------------------------
 
@@ -99,13 +78,7 @@ CREATE TABLE "product" (
 -- Volcado de datos para la tabla "product"
 --
 
-INSERT INTO "product" ("IdProduct", "nombre", "precio", "descripcion", "categoria", "subCategoria", "IdUser") VALUES
-(10, 'Timberland - Brooklyn 6 Inch A27QD Wheat Nubuck ', 750, 'Edición Limitada', 'hombre', 'camisas', 33),
-(15, 'Yeezy Gray', 800, 'Edición Limitada', 'hombre', 'camisas', 33),
-(16, 'Air Jordan 1 University Blue Release', 800, 'Edición Limitada', 'hombre', 'camisas', 33),
-(17, 'Real Flex Grey Orange', 900, 'Edición Limitada', 'hombre', 'camisas', 33);
-
--- --------------------------------------------------------
+-------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla "users"
@@ -122,10 +95,7 @@ CREATE TABLE "users" (
 -- Volcado de datos para la tabla "users"
 --
 
-INSERT INTO "users" ("IdUser", "nombre", "email", "pass") VALUES
-(33, 'Darlyn', 'darlyn@gmail.com', '$2y$10$IJhY2u29o.yzUNcpvBqKT.m0wyYJ6ZKFSaCPPZrIDWdg3sMWJgJg.');
 
---
 -- Índices para tablas volcadas
 --
 
