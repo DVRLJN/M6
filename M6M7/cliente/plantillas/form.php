@@ -81,9 +81,10 @@
                     <input type="hidden" name="cp" value="" id="cp"/> 
                     <input type="hidden" name="ciudad" value="" id="ciudad"/>  
                     <div class="flex items-center justify-center">
-                        <button disabled id="btnAdd" type="submit"
-                        class="px-6 py-3 text-center text-white bg-gray-500 rounded-md w-full mx-auto md:mx-2 focus:outline-none">
+                        <button  id="btnAdd" type="submit"
+                        class="px-6 py-3 text-center text-white bg-green-500 rounded-md w-full mx-auto md:mx-2 focus:outline-none">
                             <span>Agregar a la tienda</span>
+                            <div id="toast"></div>
                         </button>
                     </div>
                 </form>

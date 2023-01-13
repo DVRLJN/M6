@@ -30,6 +30,7 @@ btnMap.addEventListener('click', function(){
 
 /* MAPA */
 async function initMap(address) {
+    console.log('adress: ',address);
     const bcn = { lat: 41.390205, lng: 2.154007 };
     const map = new google.maps.Map(document.getElementById("map"), {
       zoom: 9,
@@ -81,8 +82,6 @@ async function initMap(address) {
     calleGeo = results[0].address_components[1].short_name;
     cpGeo = results[0].address_components[6].short_name;
     ciudadGeo = results[0].address_components[2].short_name;
-    
-    console.log(results[0].aformatted_address);
 
     lat.value = latitude;
     long.value = longitude;
@@ -192,11 +191,16 @@ let btnLocOk = document.getElementById('btnLocOk');
     btnLocOk.addEventListener('click',  function(e){
         e.preventDefault();
         initMap(document.getElementById('inputLocation').value);
-        if(btnLocOk.value != ''){
+     /*    if(btnLocOk.value != ''){
         document.getElementById("btnAdd").disabled = false; 
         document.getElementById("btnAdd").classList.add('bg-green-500');
-        }
+        }else{
+            document.getElementById("btnAdd").disabled = true; 
+            document.getElementById("btnAdd").classList.add('bg-gray-500');
+        } */
     });
+
+
 
 //BUSCADOR
 let search = document.getElementById('search');
@@ -214,7 +218,19 @@ search.addEventListener('keyup', ()=> {
         })
          vista.innerHTML = prod; 
     })  
-}) 
+});
+
+//AGREGA
+/* let btnAdd = document.getElementById('btnAdd');
+btnAdd.addEventListener('click', () => {
+    if(btnAdd.disabled = false){
+        const toast = document.querySelector(".toast");
+        toast.innerHTML = "Producto agregado correctamente";
+    toast.classList.add("bg-green-500", "text-white", "p-4", "rounded-lg", "fixed", "bottom-0", "right-0", "m-4", "opacity-100", "block");
+
+    }
+}); */
+
 
 //EDITAR
 let btnEdit = document.querySelectorAll('.btnEdit');
@@ -225,7 +241,7 @@ btnEdit.forEach(el=>{
     
     
     el.addEventListener('click', () => {
-        document.getElementById("btnAdd").disabled = true; 
+        /* document.getElementById("btnAdd").disabled = true;  */
         console.log('id producto: ',id);
         cambioBtn = true;
         if(cambioBtn){
