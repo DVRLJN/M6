@@ -7,6 +7,22 @@ const keys = {
     account_id: 'DarlynCuevas'
 }
 
+let pages = {
+    query:'',
+    total_pages: 0,
+    current_page : 1
+}
+
+window.addEventListener('scroll', () => {
+    const {scrollTop, scrollHeight,clientHeight} = document.documentElement;
+    if (scrollTop + clientHeight >= scrollHeight - 5 && pages.current_page<pages.total_pages) {
+        pages.current_page++;
+        searchMovies(pages.query,pages.current_page);
+    }
+    });
+
+let favoritas =  [];
+watchList = [];
 let moviesResult = document.getElementById("moviesResult");
 
 
@@ -54,6 +70,7 @@ async function setWatch(id, watchBool){
         let results = await fetch(url,options);
         let data = await results.json();
         console.log(data.results);
+      
         showFavs();
     } catch (error) {
         console.log(err);
@@ -71,7 +88,11 @@ async function showFavs(){
         let results = await fetch(url);
         let data = await results.json();
         console.log(data.results);
-        data.results.forEach(e =>{printMovie(e,true,false);})
+        data.results.forEach(e => {
+            const checkWatch = (element) => element.id === e.id;
+            let watchBool = watchList.some(checkWatch);
+            printMovie(e,true,watchBool);})
+        favoritas  =  data.results;
     } catch (error) {
         console.log(err);
     }
@@ -84,7 +105,11 @@ async function showWatch() {
         let results = await fetch(url);
         let data = await results.json();
         console.log(data.results);
-        data.results.forEach(e =>{printMovie(e,true,true);})
+        watchList = data.results;
+        data.results.forEach(e =>{
+            const checkFav = (element) => element.id === e.id;
+            let favBool = favoritas.some(checkFav);
+            printMovie(e,favBool,true);})
     } catch (error) {
         console.log(err);
     }
@@ -93,14 +118,16 @@ async function showWatch() {
 
 
 
-async function searchMovies(query){
+async function searchMovies(query,page){
+    pages.query = query;
     moviesResult.innerHTML="";
     try {
-
-        let url = `https://api.themoviedb.org/3/search/movie?api_key=${keys.api_key}&language=en-US&query=${query}`;
+        
+        let url = `https://api.themoviedb.org/3/search/movie?api_key=${keys.api_key}&language=en-US&query=${query}&page=${page}`;
         let results = await fetch(url);
         let data = await results.json();
-        console.log(data.results);
+        pages.total_pages = data.total_pages;
+        console.log('resultado búsqueda ',data);
         //busca favoritas
        
         let url2 = `https://api.themoviedb.org/3/account/${keys.account_id}/favorite/movies?api_key=${keys.api_key}&session_id=${keys.session_id}`;
@@ -153,7 +180,8 @@ document.getElementById("showWatch").addEventListener("click", function(){
 // Intro a l'input
 document.getElementById("search").addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
-        searchMovies(this.value);
+        pages.current_page = 1;
+        searchMovies(this.value,pages.current_page);
     }
 });
 
@@ -185,4 +213,5 @@ function printMovie(movie, fav, watch){
                                         <a id="watch" onClick="setWatch(${movie.id}, ${!watch})"><i class="fa-solid fa-eye ${watchIcon}"></i></a>
                                     </div>`;
 }
+
 
