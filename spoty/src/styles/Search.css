@@ -1,0 +1,75 @@
+.img{
+    width: 4rem;
+}
+.lista{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 2rem;
+    padding-right: 2rem;
+}
+.artist-albums {
+    padding: 20px;
+  }
+  
+  .album-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .album-item {
+    margin: 20px;
+    width: 200px;
+    text-align: center;
+  }
+  
+  .album-item img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .album-item h2 {
+    margin-top: 10px;
+    font-size: 1.2em;
+  }
+  
+  .album-item h3 {
+    margin-top: 5px;
+    font-size: 0.8em;
+    color: #777;
+  }
+  .gray{
+    color: gray;
+  }
+
+  .search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .search-container input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: none;
+    width: 350px;
+    height: 40px;
+    background: #f1f1f1;
+    border-radius: 20px 0 0 20px;
+  }
+  
+  .search-container button[type=submit] {
+    height: 62px;
+    width: 50px;
+    border: none;
+    background: #333;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 0 20px 20px 0;
+  }
+  
+  .search-container button[type=submit]:hover {
+    background: #666;
+  }
+  
