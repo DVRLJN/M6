@@ -1,0 +1,7 @@
+{
+  "name": "gameover",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
