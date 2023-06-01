@@ -1,0 +1,47 @@
+.ionContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .product-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+  }
+  .header{
+    margin-bottom: 50px;
+  }
+  .product-card {
+    max-width: 400px;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-image {
+    max-width: 100%;
+  }
+  
+  .card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  
+  .card-price {
+    font-size: 1rem;
+    color: #888;
+  }
+  
+  .card-description {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  
+ 
+  

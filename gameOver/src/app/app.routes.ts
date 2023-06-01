@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { PedidoComponent } from './pedido/pedido.component';
 export const routes: Routes = [
   {
     path: '',
@@ -7,5 +8,6 @@ export const routes: Routes = [
   {
     path: 'product-detail/:id',
     loadComponent: () => import('./product-detail/product-detail.page').then( m => m.ProductDetailPage)
-  }
+  },
+  { path: 'pedido', component: PedidoComponent },
 ];

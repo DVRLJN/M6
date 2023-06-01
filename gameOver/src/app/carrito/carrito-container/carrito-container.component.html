@@ -1,4 +1,18 @@
-<ul>
-    <li *ngFor="let producto of productos">{{producto.id}}</li>
+<div class="product-list">
+  <ul>
+    <ng-container *ngFor="let productItem of productos; let i = index">
+      <ng-container *ngIf="!isDuplicateProduct(i)">
+        <li>
+          <div class="product-info">
+            <h2 class="product-title">{{ productItem.products[0].name }}</h2>
+            <p class="product-price">{{ productItem.products[0].price | currency:'USD':'symbol':'1.2-2' }}</p>
+          </div>
+          <div class="product-actions">
+            <button (click)="eliminarProducto(i)" class="delete-button">Eliminar</button>
+          </div>
+        </li>
+      </ng-container>
+    </ng-container>
   </ul>
-  
+  <button (click)="realizarPedido()" class="order-button">Realizar Pedido</button>
+</div>

@@ -25,7 +25,7 @@ export class ProductosComponent {
       const productRequests = data.products.map((product:any) => {
         return this.apiService.getImage(product.id, product.id_default_image).pipe(
           map((response: Blob) => {
-            const imageLink = URL.createObjectURL(response);
+            const imageLink = URL.createObjectURL(response);     
             return { ...product, imageLink };
           })
         );
@@ -36,23 +36,7 @@ export class ProductosComponent {
       });
     });
   }
-  comprar(producto: any) {
-    
-    let productosGuardados = [];
-    const datosLocalStorage = localStorage.getItem('productos');
-  
-    if (datosLocalStorage) {
-      try {
-        productosGuardados = JSON.parse(datosLocalStorage);
-      } catch (e) {
-        console.error('Error al analizar los datos del LocalStorage:', e);
-      }
-    }
-  
-    productosGuardados.push({id: producto.id});
-    localStorage.setItem('productos', JSON.stringify(productosGuardados));
-  }
-  
+
   mostrarDetalle(producto: any) {
     const productId = producto.id;
     this.router.navigate(['/product-detail', productId]);

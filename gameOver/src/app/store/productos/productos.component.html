@@ -9,18 +9,17 @@
       <ion-col size="12" size-md="6" size-lg="4" *ngFor="let product of products">
         <ion-card 
           class="product-card"
-          (click)="mostrarDetalle(product)">
+          >
           <ion-img class="card-image" [src]="product.imageLink" [alt]="product.name"></ion-img>
           <ion-card-header>
             <ion-card-title class="card-title">{{product.name}}</ion-card-title>
             <ion-card-subtitle class="card-price">{{product.price | currency:'USD':'symbol':'1.2-2'}}</ion-card-subtitle>
           </ion-card-header>
-          <ion-text class="card-description ion-padding" [innerHTML]="product.description"></ion-text>
           <ion-button
-                      (click)="comprar(product)"
+                      (click)="mostrarDetalle(product)"
                       class="buy-button" 
                       color='secondary' 
-                      expand="block">Comprar</ion-button>
+                      expand="block">Ver Juego</ion-button>
         </ion-card>
       </ion-col>
     </ion-row>

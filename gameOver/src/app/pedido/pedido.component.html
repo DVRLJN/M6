@@ -1,0 +1,18 @@
+<form [formGroup]="pedidoForm" (ngSubmit)="onSubmit()" class="order-form">
+  <div class="input-group">
+    <label for="id_product">Producto:</label>
+    <input id="id_product" type="text" formControlName="id_product">
+  </div>
+
+  <div class="input-group">
+    <label for="id_address_delivery">Dirección de entrega:</label>
+    <input id="id_address_delivery" type="text" formControlName="id_address_delivery">
+  </div>
+
+  <div class="input-group">
+    <label for="user_id">ID de usuario:</label>
+    <input id="user_id" type="text" formControlName="user_id">
+  </div>
+
+  <button type="submit">Realizar pedido</button>
+</form>

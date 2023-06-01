@@ -1,6 +1,15 @@
-<ion-content>
-  <ion-card *ngIf="producto">
-   <p>hola</p>
+<app-header class="header"></app-header>
+<div class="contenedor">
+  <ion-content class="ionContent" *ngIf="producto">
+    <div class="product-container">
+      <div class="product-card">
+        <ion-img class="card-image" [src]="img" [alt]="producto.name"></ion-img>
+        <ion-card-title class="card-title">{{producto.name}}</ion-card-title>
+        <ion-card-subtitle class="card-price">{{producto.price | currency:'USD':'symbol':'1.2-2'}}</ion-card-subtitle>
+        <ion-text class="card-description ion-padding" [innerHTML]="producto.description"></ion-text>
+        <ion-button [disabled]="purchased" (click)="comprar(producto)" class="buy-button" color="secondary" expand="block">Comprar</ion-button>
+      </div>
+    </div>
+  </ion-content>
+</div>
 
-  </ion-card>
-</ion-content>

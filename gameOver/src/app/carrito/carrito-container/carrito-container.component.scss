@@ -1,0 +1,72 @@
+.product-list {
+  max-width: 500px;
+  margin: 0 auto;
+  padding-bottom: 60px; /* Espacio adicional para el Tab Bar */
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+.product-info {
+  flex: 1;
+}
+
+.product-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.product-price {
+  font-size: 16px;
+  color: #888;
+  margin-bottom: 4px;
+}
+
+.product-description {
+  font-size: 14px;
+}
+
+.product-actions {
+  margin-left: 10px;
+}
+
+.delete-button {
+  padding: 6px 12px;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.order-button {
+  display: block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: fixed; /* Posición fija para mantener el botón visible */
+  bottom: 10px; /* Ajusta según sea necesario para evitar que se superponga con el Tab Bar */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1; /* Para asegurarse de que esté por encima del contenido y el Tab Bar */
+}
+
+.order-button:hover,
+.delete-button:hover {
+  background-color: #0069d9;
+}
